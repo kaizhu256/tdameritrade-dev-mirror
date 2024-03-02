@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xml:base="https://developer.tdameritrade.com"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel>
+ <title>TD Ameritrade for developer - creating groups/company</title>
+ <link>https://developer.tdameritrade.com/blog/creating-groupscompany</link>
+ <description></description>
+ <language>en</language>
+<item>
+ <title>Creating and Managing Groups/Company</title>
+ <link>https://developer.tdameritrade.com/content/creating-and-managing-groupscompany</link>
+ <description>
+&lt;div class=&quot;field field-name-field-keywords field-type-taxonomy-term-reference field-label-above&quot;&gt;
+      &lt;div class=&quot;field-label&quot;&gt;Keywords:&amp;nbsp;&lt;/div&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+          &lt;span class=&quot;field-item even label label-default keyword-label&quot;&gt;&lt;a href=&quot;/blog/creating-groupscompany&quot; typeof=&quot;skos:Concept&quot; property=&quot;rdfs:label skos:prefLabel&quot; datatype=&quot;&quot;&gt;creating groups/company&lt;/a&gt;&lt;/span&gt;
+      &lt;/div&gt;
+&lt;/div&gt;&lt;div class=&quot;field field-name-body field-type-text-with-summary field-label-hidden&quot;&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot; property=&quot;content:encoded&quot;&gt;&lt;p&gt;This guide will help you with creating a group and registering the first app for your group within the Developer Portal. A group provide you with the ability to associate your developer account with developer accounts of other developers. Groups can be created for corporate entities and trading clubs. Here are the steps to get started.&lt;/p&gt;
+&lt;h1&gt;Creating a Group/Company&lt;/h1&gt;
+&lt;ol start=&quot;1&quot; type=&quot;1&quot;&gt;
+&lt;li&gt;Log into your developer account&lt;/li&gt;
+&lt;li&gt;Click on the drop down in the upper left that shows your developer account username&lt;/li&gt;
+&lt;li&gt;Click on Manage Companies. If you do not see Manage Companies, please email us directly at &lt;a href=&quot;mailto:API@TDAmeritrade.com&quot;&gt;API@TDAmeritrade.com&lt;/a&gt; for you so we can enable this for you. This is off by default.&lt;/li&gt;
+&lt;li&gt;Click on Create Company&lt;/li&gt;
+&lt;li&gt;You will be promoted to enter the following information:
+&lt;ul&gt;
+&lt;li&gt;Company Name&lt;/li&gt;
+&lt;li&gt;Company Website (if available)&lt;/li&gt;
+&lt;li&gt;Company Purpose&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;Inviting other developers&lt;/h1&gt;
+&lt;ol start=&quot;1&quot; type=&quot;1&quot;&gt;
+&lt;li&gt;Log into your developer account&lt;/li&gt;
+&lt;li&gt;Click on the drop down in the upper left that shows your developer account username and click on Manage Companies&lt;/li&gt;
+&lt;li&gt;Click into the company that is listed&lt;/li&gt;
+&lt;li&gt;Enter in the email address of other developers. Please note that the email you send an invite to must be an email that is already registered with their own developer account through the developer portal. For them to create their own developer account so they can get this invite, have them go to our portal (&lt;a href=&quot;https://developer.tdameritrade.com&quot;&gt;https://developer.tdameritrade.com&lt;/a&gt;) and click on Register in the upper right corner.&lt;/li&gt;
+&lt;li&gt;Once added, the other developers will receive an email invitation to accept the invitation. They can be removed from this same page.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1&gt;Registering your Group/Company App&lt;/h1&gt;
+&lt;div class=&quot;alert alert-warning&quot;&gt;By default, all Commercial and Personal applications are limited to 120 requests per minute. Please email us directly at &lt;a href=&quot;mailto:API@TDAmeritrade.com&quot;&gt;API@TDAmeritrade.com&lt;/a&gt; for other potential options&lt;/div&gt;
+&lt;ol start=&quot;1&quot; type=&quot;1&quot;&gt;
+&lt;li&gt;Log into your developer account&lt;/li&gt;
+&lt;li&gt;Click on My Apps in the upper left&lt;/li&gt;
+&lt;li&gt;Click on the drop down in the upper left that shows your developer account username and click on a Group/Company that is listed.&lt;/li&gt;
+&lt;li&gt;Click on Add a new App and enter in your app information. Here are the field details:
+&lt;ul&gt;
+&lt;li&gt;&lt;b&gt;App Name:&lt;/b&gt;&amp;nbsp; A unique application name that users of the app will be able to see.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Callback URL:&lt;/b&gt;&amp;nbsp;The URL to receive the auth code (used to retrieve a token from the Authentication API) after successful authentication. Separate URLs with a comma for multiple URLs. Localhost can be used here, as well like https://127.0.0.1.&lt;/li&gt;
+&lt;li&gt;&lt;b style=&quot;font-family: Arial, sans-serif;&quot;&gt;What is the purpose of your application?:&lt;/b&gt;&amp;nbsp;&lt;span style=&quot;font-family: Arial, sans-serif;&quot;&gt;Use cases of the application, trading strategy, number of orders sent per day, etc.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Click on Create App. Your app will be in Pending status for our review. Please allow 1-2 business days for this review process.&lt;/li&gt;
+&lt;li&gt;Once your app is created, head over to our Simple Auth for Local Apps guide (&lt;a href=&quot;https://developer.tdameritrade.com/content/simple-auth-local-apps&quot;&gt;https://developer.tdameritrade.com/content/simple-auth-local-apps&lt;/a&gt;) to generate your first set of tokens.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description>
+ <pubDate>Tue, 25 Jun 2019 07:00:00 +0000</pubDate>
+ <dc:creator>portaladmin</dc:creator>
+ <guid isPermaLink="false">111 at https://developer.tdameritrade.com</guid>
+ <comments>https://developer.tdameritrade.com/content/creating-and-managing-groupscompany#comments</comments>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xml:base="https://developer.tdameritrade.com"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel>
+ <title>TD Ameritrade for developer - auth</title>
+ <link>https://developer.tdameritrade.com/blog/auth</link>
+ <description></description>
+ <language>en</language>
+<item>
+ <title>Simple Auth for Local Apps</title>
+ <link>https://developer.tdameritrade.com/content/simple-auth-local-apps</link>
+ <description>
+&lt;div class=&quot;field field-name-field-keywords field-type-taxonomy-term-reference field-label-above&quot;&gt;
+      &lt;div class=&quot;field-label&quot;&gt;Keywords:&amp;nbsp;&lt;/div&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+          &lt;span class=&quot;field-item even label label-default keyword-label&quot;&gt;&lt;a href=&quot;/blog/auth&quot; typeof=&quot;skos:Concept&quot; property=&quot;rdfs:label skos:prefLabel&quot; datatype=&quot;&quot;&gt;auth&lt;/a&gt;&lt;/span&gt;
+      &lt;/div&gt;
+&lt;/div&gt;&lt;div class=&quot;field field-name-body field-type-text-with-summary field-label-hidden&quot;&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot; property=&quot;content:encoded&quot;&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;This guide will help you get started with authentication without the need to run a Web server. This is especially useful for running a local application for personal use. Note that you will need your Redirect URI and Consumer Key - see the &lt;a href=&quot;https://developer.tdameritrade.com/content/getting-started&quot;&gt;Getting Started guide&lt;/a&gt; for more information on creating apps. Included below are some example values&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Go to your auth URL (capitalization does matter) at https://auth.tdameritrade.com/auth?response_type=code&amp;amp;redirect_uri={URLENCODED REDIRECT URI}&amp;amp;client_id={URLENCODED Consumer Key}%40AMER.OAUTHAP
+&lt;ol&gt;
+&lt;li style=&quot;list-style: none&quot;&gt;
+&lt;pre&gt;
+Example: https://auth.tdameritrade.com/auth?response_type=code&amp;amp;redirect_uri=https%3A%2F%2F127.0.0.1&amp;amp;client_id=EXAMPLE%40AMER.OAUTHAP&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Authenticate with a TD Ameritrade account and it will redirect you to a 404, but in the address bar, copy the part that comes after &amp;ldquo;code=&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;URL decode&lt;/strong&gt; what you copied and then copy and paste that value in to the code param on &lt;a href=&quot;https://developer.tdameritrade.com/authentication/apis/post/token-0&quot; rel=&quot;nofollow&quot;&gt;https://developer.tdameritrade.com/authentication/apis/post/token-0&lt;/a&gt;
+&lt;ol&gt;
+&lt;li style=&quot;list-style: none&quot;&gt;
+&lt;pre&gt;
+Example: If the authorization code was 03%40A%2FB (it&amp;#39;s longer), I would URL decode it to get 03@A/B - this is because the developer site automatically urlencodes values - your app would be able to use the code exactly as it comes back&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Fill out the other values
+&lt;ol&gt;
+&lt;li style=&quot;list-style: none&quot;&gt;
+&lt;pre&gt;
+grant_type: authorization_code
+access_type: offline
+client_id: {Consumer Key} (e.g. EXAMPLE@AMER.OAUTHAP)
+redirect_uri: {REDIRECT URI} (e.g. https://127.0.0.1)&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Hit SEND&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;That will give you a refresh token that you can use for 90 days to request access tokens and allow you to authenticate without needing a server. Note that you will need to update your app&amp;#39;s refresh token at least once every 90 days to keep it functioning.&lt;/p&gt;
+&lt;p&gt;To make authenticated requests, simply include the Authorization header and set it to &amp;quot;Bearer {ACCESS TOKEN}&amp;quot;.&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;To request a new access token, make a Post Access Token request with your refresh token using the following parameter values:&lt;/p&gt;
+&lt;pre&gt;
+grant_type: refresh_token
+refresh_token: {REFRESH TOKEN}
+client_id: {Consumer Key}&lt;/pre&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description>
+ <pubDate>Thu, 12 Apr 2018 13:07:00 +0000</pubDate>
+ <dc:creator>nap114</dc:creator>
+ <guid isPermaLink="false">108 at https://developer.tdameritrade.com</guid>
+ <comments>https://developer.tdameritrade.com/content/simple-auth-local-apps#comments</comments>
+</item>
+</channel>
+</rss>

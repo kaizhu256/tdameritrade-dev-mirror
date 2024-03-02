@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xml:base="https://developer.tdameritrade.com"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel>
+ <title>TD Ameritrade for developer - Phase 1: Authentication Update for the XML based API</title>
+ <link>https://developer.tdameritrade.com/blog/phase-1-authentication-update-xml-based-api</link>
+ <description></description>
+ <language>en</language>
+<item>
+ <title>Phase 1: Authentication Update for the XML based API</title>
+ <link>https://developer.tdameritrade.com/content/phase-1-authentication-update-xml-based-api</link>
+ <description>
+&lt;div class=&quot;field field-name-field-keywords field-type-taxonomy-term-reference field-label-above&quot;&gt;
+      &lt;div class=&quot;field-label&quot;&gt;Keywords:&amp;nbsp;&lt;/div&gt;
+    &lt;div class=&quot;field-items&quot;&gt;
+          &lt;span class=&quot;field-item even label label-default keyword-label&quot;&gt;&lt;a href=&quot;/blog/phase-1-authentication-update-xml-based-api&quot; typeof=&quot;skos:Concept&quot; property=&quot;rdfs:label skos:prefLabel&quot; datatype=&quot;&quot;&gt;Phase 1: Authentication Update for the XML based API&lt;/a&gt;&lt;/span&gt;
+      &lt;/div&gt;
+&lt;/div&gt;&lt;div class=&quot;field field-name-body field-type-text-with-summary field-label-hidden&quot;&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot; property=&quot;content:encoded&quot;&gt;&lt;p&gt;This guide will help you get started with the new authentication process into the XML based API.&amp;nbsp; This will not affect clients that are already on the new JSON API through this Developer Portal.&amp;nbsp; The only change for Phase 1 will be the log in request for our existing XML API users.&amp;nbsp;&amp;nbsp;&lt;strong&gt;This authentication process must be completed and implemented into your application by January 1, 2020.&amp;nbsp; Any applications on the XML based API not using this system will no longer have access into our API.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;Creating a Developer Account&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Click the&amp;nbsp;&lt;a href=&quot;https://developer.tdameritrade.com/user/register&quot;&gt;Register&lt;/a&gt;&amp;nbsp;link and complete all fields in the new user registration screen. Required fields are indicated with an asterisk.&lt;/li&gt;
+&lt;li&gt;Click &amp;quot;Create new account&amp;quot;&lt;/li&gt;
+&lt;li&gt;You will receive an email with a verification link and your new account details. Click the verification link from the email to activate your new account.&lt;/li&gt;
+&lt;li&gt;After successful login, you can navigate TD Ameritrade for developers with the following menu bar links:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;APIs:&lt;/strong&gt;&amp;nbsp;Documentation for the APIs provided through TD Ameritrade for developers&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;My Apps:&lt;/strong&gt;&amp;nbsp;Use to create, view, edit, and delete an application and its associated details&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Guides:&lt;/strong&gt;&amp;nbsp;Contains instructions on how to perform specific tasks with the APIs provided and other useful information to aid in your development&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Registering an App&lt;/h2&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;div class=&quot;alert alert-warning&quot; style=&quot;background: oldlace;&quot;&gt;Each user is allowed to create only one app for private, non-commercial use. For more information about commercial usage, please&amp;nbsp;&lt;a href=&quot;mailto:api@tdameritrade.com?subject=TD%20Ameritrade%20for%20developers&quot;&gt;Contact Us&lt;/a&gt;&amp;nbsp;after your developer portal account has been created to enable your account for access to registering an application for commercial use.&amp;nbsp;&amp;nbsp;&lt;/div&gt;
+&lt;ol&gt;
+&lt;li&gt;To create a new app, go to&amp;nbsp;&lt;a href=&quot;https://developer.tdameritrade.com/user/me/apps&quot;&gt;My Apps&lt;/a&gt;&amp;nbsp;and select&amp;nbsp;&lt;a href=&quot;https://developer.tdameritrade.com/user/me/apps/add&quot;&gt;Add a new App&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Complete the fields in the Add App screen and select&amp;nbsp;&lt;strong&gt;Create App&lt;/strong&gt;. Field details are:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;App Name:&lt;/strong&gt;&amp;nbsp;A unique application name.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Callback URL:&lt;/strong&gt;&amp;nbsp;The URL to receive the auth code (used to retrieve a token from the Authentication API) after successful authentication. Separate URLs with a comma for multiple URLs. Localhost can be used here, as well. This is also known as a redirect_URI&lt;/li&gt;
+&lt;li&gt;&lt;b style=&quot;font-family: Arial, sans-serif;&quot;&gt;What is the purpose of your application?&lt;/b&gt;&lt;strong&gt;:&lt;/strong&gt;&amp;nbsp;&lt;span style=&quot;font-family: Arial, sans-serif;&quot;&gt;Use cases of the application, trading strategy, number of orders sent per day, etc.&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Your new application will be displayed in&amp;nbsp;&lt;a href=&quot;https://developer.tdameritrade.com/user/me/apps&quot;&gt;My Apps&lt;/a&gt;&amp;nbsp;once it is successfully registered. Your Consumer Key is randomly generated and will be available on your Apps page.&amp;nbsp; This application will be associated with the authentication process.&amp;nbsp; Your old source ID (aka API Key) will still be valid until we provide more information in the future.&amp;nbsp; The old source ID is needed for the last section of this guide.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;First Authenticated Request&lt;/h2&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;To authenticate a user, we use the OAuth 2.0 Authorization Code flow described in section 1.3.1 of RFC 6749. The best way to see this in action is to follow the steps on the&amp;nbsp;&lt;a href=&quot;https://developer.tdameritrade.com/content/simple-auth-local-apps&quot;&gt;&lt;strong&gt;Simple Auth for Local Apps&lt;/strong&gt;&lt;/a&gt;&amp;nbsp;Guide&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Invoke the authentication window in the browser with the URL https://auth.tdameritrade.com/auth?response_type=code&amp;amp;redirect_uri=&lt;code style=&quot;font-size: 12.6px;&quot;&gt;{Callback URL}&lt;/code&gt;&amp;amp;client_id=&lt;code style=&quot;font-size: 12.6px;&quot;&gt;{Consumer Key}&lt;/code&gt;@AMER.OAUTHAP&lt;/li&gt;
+&lt;li&gt;When the user has authenticated, a GET request will be made to your redirect URI with the authorization code passed as a parameter.&lt;/li&gt;
+&lt;li&gt;This authorization code, once URL decoded, can then be passed as the code parameter to the Authentication API&amp;#39;s&amp;nbsp;&lt;a href=&quot;https://developer.tdameritrade.com/authentication/apis/post/token-0&quot;&gt;Post Access Token method&lt;/a&gt;&amp;nbsp;using the &amp;lsquo;authorization_code&amp;rsquo; grant type. To receive a refresh token which allows you to receive a new access token after the access token&amp;#39;s expiration of 30 minutes, set the access type to &amp;lsquo;offline&amp;rsquo;.&amp;nbsp; Here is an example of a request to generate your first set of tokens:
+&lt;ol&gt;
+&lt;li style=&quot;list-style: none;&quot;&gt;
+&lt;pre style=&quot;line-height: 1.42857;&quot;&gt;
+grant_type: authorization_code
+refresh_token: &amp;lt;null&amp;gt;
+access_type: offline
+code: {URL Decoded Auth Code}
+client_id: {Consumer Key}
+redirect_uri: {Callback URL}&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;alert alert-warning&quot; style=&quot;background: oldlace; margin-left: 0.5in;&quot;&gt;The &amp;lsquo;access_type&amp;rsquo; is optional.&amp;nbsp; Set this to &amp;lsquo;offline&amp;rsquo; to generate a refresh token along with an access token (preferred).&amp;nbsp; If no refresh token is needed, this field can be left empty.&lt;/div&gt;
+&lt;ol&gt;
+&lt;li value=&quot;4&quot;&gt;When you have POSTed details to the token endpoint and received your access token and refresh token, you can pass the access token as a bearer token by setting the Authorization header on all requests to &amp;quot;Bearer&amp;nbsp;&lt;code style=&quot;font-size: 12.6px;&quot;&gt;Access Token&lt;/code&gt;&amp;quot;.&lt;/li&gt;
+&lt;li value=&quot;5&quot;&gt;To request a new access token, make a Post Access Token request with your refresh token using the following parameter values:
+&lt;ol&gt;
+&lt;li style=&quot;list-style: none;&quot;&gt;
+&lt;pre style=&quot;line-height: 1.42857;&quot;&gt;
+grant_type: refresh_token
+refresh_token: {REFRESH TOKEN}
+client_id: {Consumer Key}&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Login Request with Old API&lt;/h2&gt;
+&lt;div class=&quot;alert alert-warning&quot; style=&quot;background: oldlace;&quot;&gt;This will replace your previous session log in process.&amp;nbsp; All other aspects of the older XML based API will still remain the same for Phase 1.&amp;nbsp;&amp;nbsp;&lt;strong&gt;The old authentication process will no longer be available as of January 1, 2020.&lt;/strong&gt;&amp;nbsp; We will provide more information for Phase 2 in the future, but you can fully migrate now without waiting.&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Resource URL:&lt;/strong&gt;&amp;nbsp;https://apis.tdameritrade.com/apps/100/AuthTokenLogIn&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Parameters:&amp;nbsp;&lt;/strong&gt;The following parameters have to be POSTed:&lt;/p&gt;
+&lt;p&gt;Header Parameter:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li style=&quot;list-style: none;&quot;&gt;
+&lt;pre style=&quot;line-height: 1.42857;&quot;&gt;
+Content-Type: application/x-www-form-urlencoded&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Body parameter:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li style=&quot;list-style: none;&quot;&gt;
+&lt;pre style=&quot;line-height: 1.42857;&quot;&gt;
+version: 1.0 // version number of client software application.
+source: ABC1 // the sourceID previously assigned by TD Ameritrade
+authToken: vcOPjPaPlvYHAG915GA... //URL Decoded access token from the previous step.&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Response:&lt;/strong&gt;&amp;nbsp;This will be the same XML response as before. &amp;nbsp;This will establish a session so it can be used in the other XML based API end-points.&amp;nbsp; Everything else will still work the same for Phase1.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h2&gt;More information&lt;/h2&gt;
+&lt;p&gt;If would like to migrate over completely from the old API to the new API now without waiting, here are some useful links:&lt;/p&gt;
+&lt;p&gt;Our API Endpoints:&amp;nbsp;&lt;a href=&quot;https://developer.tdameritrade.com/apis&quot;&gt;https://developer.tdameritrade.com/apis&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Our Streamer API:&amp;nbsp;&lt;a href=&quot;https://developer.tdameritrade.com/content/streaming-data&quot;&gt;https://developer.tdameritrade.com/content/streaming-data&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Our Place Order Samples page:&amp;nbsp;&lt;a href=&quot;https://developer.tdameritrade.com/content/place-order-samples&quot;&gt;https://developer.tdameritrade.com/content/place-order-samples&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description>
+ <pubDate>Thu, 18 Jul 2019 21:31:58 +0000</pubDate>
+ <dc:creator>kboyapati</dc:creator>
+ <guid isPermaLink="false">112 at https://developer.tdameritrade.com</guid>
+ <comments>https://developer.tdameritrade.com/content/phase-1-authentication-update-xml-based-api#comments</comments>
+</item>
+</channel>
+</rss>

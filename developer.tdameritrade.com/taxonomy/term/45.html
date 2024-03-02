@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/ dc: http://purl.org/dc/terms/ foaf: http://xmlns.com/foaf/0.1/ og: http://ogp.me/ns# rdfs: http://www.w3.org/2000/01/rdf-schema# sioc: http://rdfs.org/sioc/ns# sioct: http://rdfs.org/sioc/types# skos: http://www.w3.org/2004/02/skos/core# xsd: http://www.w3.org/2001/XMLSchema#">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="../../sites/default/files/TD-bank-icon.png" type="image/png" />
+<link rel="canonical" href="../../price-history/apis.html" />
+<link rel="shortlink" href="45.html" />
+  <title>TD Ameritrade for developer | Price History</title>
+  <style>
+@import url("https://developer.tdameritrade.com/modules/system/system.base.css?rjb2e8");
+</style>
+<style>
+@import url("https://developer.tdameritrade.com/profiles/apigee/themes/apigee_responsive_tda/css/bootstrap.min.css?rjb2e8");
+</style>
+<style>
+@import url("../../sites/all/modules/custom/ldap-7.x-2.3/ldap/ldap_user/ldap_user.css@rjb2e8.css");
+@import url("https://developer.tdameritrade.com/modules/field/theme/field.css?rjb2e8");
+@import url("https://developer.tdameritrade.com/profiles/apigee/modules/contrib/logintoboggan/logintoboggan.css?rjb2e8");
+@import url("https://developer.tdameritrade.com/modules/node/node.css?rjb2e8");
+@import url("https://developer.tdameritrade.com/profiles/apigee/modules/contrib/views/css/views.css?rjb2e8");
+@import url("https://developer.tdameritrade.com/profiles/apigee/modules/contrib/ckeditor/css/ckeditor.css?rjb2e8");
+</style>
+<style>
+@import url("https://developer.tdameritrade.com/profiles/apigee/modules/contrib/ctools/css/ctools.css?rjb2e8");
+@import url("../../sites/all/modules/custom/ldap-7.x-2.3/ldap/ldap_servers/ldap_servers.admin.css@rjb2e8.css");
+@import url("https://developer.tdameritrade.com/profiles/apigee/modules/custom/devconnect/smartdocs/css/smartdocs.css?rjb2e8");
+</style>
+<style>
+@import url("https://developer.tdameritrade.com/profiles/apigee/themes/apigee_responsive_tda/css/style.css?rjb2e8");
+</style>
+<style>.navbar-nav > li > span > span.caret{border-bottom-color:#228B22;border-top-color:#228B22;color:#228B22;}.faq .collapsed{display:block !important;}body header.navbar{background-color:#D3D3D3;}body header.navbar{border-color:#D3D3D3;}body .navbar-inverse .navbar-toggle,body .navbar-inverse .navbar-collapse:focus,body .navbar-inverse .navbar-toggle:hover,body .navbar-inverse .navbar-toggle:focus,body .navbar-inverse .navbar-nav > .open > a,body .navbar-inverse .navbar-nav > .open > a:hover,body .navbar-inverse .navbar-nav > .open > a:focus,body .navbar-default .navbar-toggle:hover,body .navbar-default .navbar-toggle:active,body .navbar-default .navbar-toggle:focus,body .navbar-default .navbar-collapse,body .navbar-default .navbar-collapse:hover,body .navbar-default .navbar-collapse:focus,body .navbar-default .navbar-nav > .open > a,body .navbar-default .navbar-nav > .open > a:hover,body .navbar-default .navbar-nav > .open > a:focus,body header.navbar.navbar-nav > .open > a,body header.navbar.navbar-nav > .open > a:hover,body header.navbar.navbar-nav > .open > a:focus{border-color:#D3D3D3;background-color:#D3D3D3;}body .navbar-inverse .navbar-nav > .open > a:hover{color:#FFFFFF;}body header.navbar .nav > li > a{color:#228B22;}body header.navbar .nav > li > a:hover{background-color:#32CD32;}.navbar-inverse .navbar-collapse,.navbar-inverse .navbar-form,.navbar-inverse .navbar-toggle,.navbar-default .navbar-collapse,.navbar-default .navbar-form,.navbar-default .navbar-toggle,header.navbar.navbar-collapse,header.navbar.navbar-form,header.navbar.navbar-toggle{border-color:#32CD32;}.navbar-inverse .navbar-toggle,.navbar-inverse .navbar-toggle:hover,.navbar-inverse .navbar-toggle:focus,.navbar-inverse .navbar-nav > .open > a,.navbar-inverse .navbar-nav > .open > a:hover,.navbar-inverse .navbar-nav > .open > a:focus,.navbar-default .navbar-toggle:hover,.navbar-default .navbar-toggle:active,.navbar-default .navbar-toggle:focus,.navbar-default .navbar-nav > .open > a,.navbar-default .navbar-nav > .open > a:hover,.navbar-default .navbar-nav > .open > a:focus,header.navbar.navbar-nav > .open > a,header.navbar.navbar-nav > .open > a:hover,header.navbar.navbar-nav > .open > a:focus{background-color:#32CD32;}body header.navbar .nav .active > a,body .navbar .nav .active > a:hover,.navbar.navbar-fixed-top #main-menu li a:hover{background-color:#32CD32;}body header.navbar .nav > li > a:hover{color:#FFFFFF;}body a{color:#137AAA;}body a:hover{color:#0B4965;}body .footer{background-color:#FFFFFF;}body .footer .navbar ul.footer-links > li > a{color:#0B4965;}body .footer .navbar ul.footer-links > li > a:hover{color:#0B4965;}body .btn{background-color:#009FD0;}body .btn{color:#FFFFFF;}body .btn:hover,body .btn:focus,body .btn:active,body .open .dropdown-toggle.btn{background-color:;color:;}.navbar-nav > li > span{color:#228B22;}.navbar-nav > li > span:hover{color:#FFFFFF;}.navbar-nav > li.expanded span:hover,.navbar-nav > li.expanded.active{background-color:#32CD32;}.navbar-nav > li > span > span.caret{border-bottom-color:#228B22;border-top-color:#228B22;color:#228B22;}.modal-body #user-register-form .form-type-password.col-md-4{width:100%;}body #push{height:100px;}body #resource_URL input,#method_content [data-role='method_url_container'],#method_content .url_container > p > span,[data-role='method_url_container'] span span span.template_param{font-family:Courier,'Courier New',monospace;}
+</style>
+  <!-- HTML5 element support for IE6-8 -->
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <script src="https://developer.tdameritrade.com/profiles/apigee/modules/contrib/jquery_update/replace/jquery/3.4/jquery.min.js?v=3.4.1"></script>
+<script>jQuery.migrateMute=true;jQuery.migrateTrace=false;</script>
+<script src="https://developer.tdameritrade.com/profiles/apigee/modules/contrib/jquery_update/replace/jquery-migrate/3/jquery-migrate.min.js?v=3"></script>
+<script src="https://developer.tdameritrade.com/misc/jquery-extend-3.4.0.js?v=3.4.1"></script>
+<script src="https://developer.tdameritrade.com/misc/jquery-html-prefilter-3.5.0-backport.js?v=3.4.1"></script>
+<script src="https://developer.tdameritrade.com/misc/jquery.once.js?v=1.2"></script>
+<script src="https://developer.tdameritrade.com/misc/drupal.js?rjb2e8"></script>
+<script src="https://developer.tdameritrade.com/profiles/apigee/themes/apigee_responsive_tda/js/bootstrap.min.js?rjb2e8"></script>
+<script src="../../sites/all/modules/custom/captcha-7.x-1.5/captcha/captcha.js@rjb2e8"></script>
+<script src="https://developer.tdameritrade.com/profiles/apigee/modules/contrib/bootstrap_modal_forms/js/bootstrap_modal_forms.forms.js?rjb2e8"></script>
+<script src="https://developer.tdameritrade.com/profiles/apigee/themes/apigee_responsive_tda/js/global.js?rjb2e8"></script>
+<script>jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"apigee_responsive_tda","theme_token":"OqnkrG5mKVhkRIuEzerLPxUVH9HZsrFcpi0YkywZvH4","js":{"profiles\/apigee\/themes\/bootstrap\/js\/bootstrap.js":1,"profiles\/apigee\/modules\/contrib\/jquery_update\/replace\/jquery\/3.4\/jquery.min.js":1,"0":1,"profiles\/apigee\/modules\/contrib\/jquery_update\/replace\/jquery-migrate\/3\/jquery-migrate.min.js":1,"misc\/jquery-extend-3.4.0.js":1,"misc\/jquery-html-prefilter-3.5.0-backport.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"profiles\/apigee\/themes\/apigee_responsive_tda\/js\/bootstrap.min.js":1,"sites\/all\/modules\/custom\/captcha-7.x-1.5\/captcha\/captcha.js":1,"profiles\/apigee\/modules\/contrib\/bootstrap_modal_forms\/js\/bootstrap_modal_forms.forms.js":1,"profiles\/apigee\/themes\/apigee_responsive_tda\/js\/global.js":1},"css":{"modules\/system\/system.base.css":1,"profiles\/apigee\/themes\/bootstrap\/css\/overrides.css":1,"profiles\/apigee\/themes\/apigee_responsive_tda\/css\/bootstrap.min.css":1,"sites\/all\/modules\/custom\/ldap-7.x-2.3\/ldap\/ldap_user\/ldap_user.css":1,"modules\/field\/theme\/field.css":1,"profiles\/apigee\/modules\/contrib\/logintoboggan\/logintoboggan.css":1,"modules\/node\/node.css":1,"profiles\/apigee\/modules\/contrib\/views\/css\/views.css":1,"profiles\/apigee\/modules\/contrib\/ckeditor\/css\/ckeditor.css":1,"profiles\/apigee\/modules\/contrib\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/custom\/ldap-7.x-2.3\/ldap\/ldap_servers\/ldap_servers.admin.css":1,"profiles\/apigee\/modules\/custom\/devconnect\/smartdocs\/css\/smartdocs.css":1,"profiles\/apigee\/themes\/apigee_responsive_tda\/css\/style.css":1,"0":1}},"urlIsAjaxTrusted":{"\/taxonomy\/term\/45":true,"\/search\/node":true},"passwordPolicy":{"username":""},"bootstrap_modal_forms":{"login":{"identifier":"login","url":"user\/login","open_onload":false},"register":{"identifier":"register","url":"user\/register","open_onload":false}},"bootstrap_modal_forms_current_path":"taxonomy\/term\/45","bootstrap":{"anchorsFix":"0","anchorsSmoothScrolling":"0","formHasError":1,"popoverEnabled":1,"popoverOptions":{"animation":1,"html":0,"placement":"right","selector":"","trigger":"click","triggerAutoclose":1,"title":"","content":"","delay":0,"container":"body"},"tooltipEnabled":1,"tooltipOptions":{"animation":1,"html":0,"placement":"top","selector":"","trigger":"hover focus","delay":0,"container":"body"}}});</script>
+</head>
+<body class="html not-front not-logged-in no-sidebars page-taxonomy page-taxonomy-term page-taxonomy-term- page-taxonomy-term-45 logo_standard" >
+<div id="skip-link">
+  <a href="45.html#main-content" class="element-invisible element-focusable">Skip to main content</a>
+</div>
+<header id="navbar" role="banner" class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+              <a class="logo navbar-btn pull-left" href="../../index.html" title="Home">
+          <img src="../../sites/default/files/logo.png" alt="" />
+        </a>
+      
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+      <div class="navbar-collapse collapse">
+        <nav role="navigation">
+          <ul class="menu nav navbar-nav full-menu primary-nav hidden-xs"><li class="first leaf"><a href="../../apis.html" title="View API Documenation">APIs</a></li>
+<li class="last leaf"><a href="../../guides.html">Guides</a></li>
+</ul><ul class="menu nav navbar-nav mobile-menu primary-nav visible-xs"><li class="first leaf"><a href="../../apis.html" title="View API Documenation">APIs</a></li>
+<li class="last leaf"><a href="../../guides.html">Guides</a></li>
+</ul>          <ul class="menu nav navbar-nav pull-right account-menu">
+                                        <li class=""><a href="../../user/login.html">Login</a></li>
+                      </ul>
+                  </nav>
+      </div>
+  </div>
+</header>
+<!-- Breadcrumbs -->
+  <div class="container search-container">
+    <div class="row">
+                    <div class="col-xs-6 pull-right">
+          <form action="https://developer.tdameritrade.com/search/node" method="post" id="search-form" accept-charset="UTF-8"><div><div class="form-wrapper form-group" id="edit-basic"><div class="input-group"><input placeholder="Search" class="search-query span2 form-control form-text" type="search" placeholder="Keyword" autocapitalize="off" autocorrect="off" id="edit-keys" name="keys" value="" size="20" maxlength="255" /><span class="input-group-btn"><button type="hidden" class="btn btn-primary"><span class="icon glyphicon glyphicon-search" aria-hidden="true"></span></button></span></div><button class="element-invisible btn btn-primary form-submit" style="display:none" type="hidden" id="edit-submit--3" name="op" value="Search">Search</button>
+</div><input type="hidden" name="form_build_id" value="form-2TafHAqgBO58D4W_AiMSfr8KJYFS4HR3CsYIf0w7UEk" />
+<input type="hidden" name="form_id" value="search_form" />
+</div></form>        </div>
+          </div>
+  </div>
+<!-- Breadcrumbs -->
+<div class="master-container">
+      <section class="page-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <!-- Title Prefix -->
+                        <!-- Title -->
+            <h1>Price History</h1>
+            <!-- SubTitle -->
+                        <!-- Title Suffix -->
+                      </div>
+        </div>
+      </div>
+    </section>
+    <div class="page-content">
+    <div class="main-container container">
+
+      <header role="banner" id="page-header">
+              </header> <!-- /#page-header -->
+
+      <div class="row">
+
+        
+        <section class="col-sm-12">
+                                                                        
+            <div class="region region-content">
+    <section id="block-system-main" class="block block-system clearfix">
+
+      
+  <div class="view view-price-history-methods view-id-price-history_methods view-display-id-modelindex view-dom-id-28c0525e1e6527444de8c3ec597d5b06">
+            <div class="view-header">
+      <p>Historical price data for charts</p>
+    </div>
+  
+  
+  
+      <div class="view-content">
+        <h3><h3 class="method-tag-header">Price History</h3>
+<div class="clearfix method_details">
+  <div class="method_data title-header">Method</div>
+  <div class="method_data description-header">Description</div>
+</div></h3>
+  <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+      
+  <div class="views-field views-field-display">        <span class="field-content"><div class="method_details clearfix">
+  <div class="method_data title">
+    <div class="verb-auth"><p data-role="verb" class="GET">GET</p><span title="This method needs authentication." class="icon_lock"></span></div>
+    <div class="title-description"><a href="../../price-history/apis/get/marketdata/{symbol}/pricehistory.html">Get Price History</a><p title="https://api.tdameritrade.com/v1/marketdata/{symbol}/pricehistory" class="resource_path" data-role="resource_path">https://api.tdameritrade.com/v1/marketdata/{symbol}/pricehistory</p></div>
+  </div>
+  <div class="method_data description">Get price history for a symbol
+</div>
+</div></span>  </div>  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>
+</section> <!-- /.block -->
+  </div>
+        </section>
+
+        
+      </div>
+          </div>
+  </div>
+  <div id="push"></div>
+  <footer class="footer footer-fixed-bottom">
+      <div class="region region-footer">
+    <section id="block-devconnect-default-structure-footer" class="block block-devconnect-default-structure clearfix">
+
+      
+  <p>&nbsp;<a href="https://twitter.com/TDAmeritrade" target="_blank"><img alt="TDAmeritrade Twitter Feed" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHYAAAB2CAMAAAAqeZcjAAAAP1BMVEVnyej///9hx+fk9Ppbxuee2u9SxObS7ffe8fjs9/z1+/36/f5uzOnu+fyY2O624/OJ1O2+5vR+0eup3vHH6vbFiDmOAAAFQUlEQVRogdWbWbKlIAxAEXFWRGT/a21xlilMt151/rrLy3kmgYQkouJPBP0n2GHqmmWtKJNC6TqLdup/ix3apeKI1ITgWwip8chWUf4IWwqG8MZDBtnoeKwa/7f2xHYLQ8RIfKEDyF7Ylo4A8xSC+eoFhrGD4LUX8yTXlYeZIewgRrM5XdqmbSK2YX7aVcFrl4DtaeibXkLGJRq7xEJ3MHdp2o7tWAJ0E4zmCGwzplElmFk3kw27klSo5I42RZuxA8tBlS5t8SwjNtWsLyHz4IvteDbqxl09sSXKSN24zAtbprswzNWwWTV8clfNviq2z0+VfgVh8/nwh6vuIwWb5ZQwCG5dWPEj6nZe9XZs+SOo5DIrdnC605aaxoT8S75u9caujlUxp7OYacqebs3Y0m5YPC6HbTrXn+YWzI3Ywb53MJ/ux5roo7NeTNjF+rJfN2yi33ecdGxvNxtuPl5YxXJfwejGzg4Vf6hFGW/eUsVOjofFF9uP0ViqYl0eqhxs7u3t5pZf7OBYaVQz/Phwgasv1u7GWbGoHt5Yt97UGxyNx15H5IF178WMWMz7F7ZyBryM2OsM2LHAlsiJJdWDBaJ7Tiw6DlrksY6GfdWHFIGxh5YldgCeVLFtc0l7i/yXmDkMxuuFbYFnAypdDYeyMTxe2Bl4NKTA1sNnSXdiIRcJqus5AughpDmw4NEeVk4UwGq7cTfsBJkjDDsAcXFPXTdsW2fFgjaTOxfBHhWKhdbD044Fc6NArCuISqnLHQu6fOa3JUJi4RwlEAu9hoy5aLtIA9RAbActJ3cQKiYwEQzDgq4iE6rs2Aa8Isu0FXlk2yFYAS32C2zpkwHIYyoGu9LqkPkS+T9Mdoh88o5YLCdP7+kQ79xix+5KBh1ew6bWt2mcJ2fBwhe43NjV73BUS+CJ2ONwBFdRLvPp2D0UwNm2ik1Kz7fA1+5YsM6oYqOLF4eQI8xDp6imZDAdccuZ1JRALqVh2yTslcJBO0grBhdJpe4rYYU8E2u9jaQmhnTkHQvUEdW6VJFSATyrNRILRuZJ45ZMziMQQkLvma+rVw89KTTsljI1YtlCXvUIZR73zLMktl+rIeOaGkgmGboV1P5u2gMLJdQEaHl/rA5Jd2OhkKv7sl2ATX2WHY8CERgNArI49744dHxioUaMt3ULSHVnKfvAghmGrf1rEpfqLnMhH82gIDW7IkVdfrATdLVW21YOceyL21hXGRsM3ZjpZ1U49gpmFxbOlq/iKCj2LOA53e8WBZyp4NHLvo6SyRO5b6xHWxHjxThW8BVHi+XZhk/7yad1Syj4wg5rvZq4Dxa+Hchfkso9C9XZi3DvUYhXa7GBNtEBxnwubc7VC0fvDL1+9W6keqbdW1DldBVN2V1y1naXypVkfaL2Gwvf/Z41tsSiVoRYphHPX9DCgv1da17uvsmK/dkggjaK8MUmtO/cog58KHMXU94xnptKCye2aH/B1bMEbZTHo7AUTtX2uT64BJfRQqmjHjINY1pQ+pqBahxKS7nhaEK4KT0wjuCJfFxLUmIeOGxzDaYRao7QlvHKCWya+VFt1wnbVOeQ4ZzEo1p+ALEZDIyZ/cbmGBTumFfct0H1uTs/rJzajdU0JtR5OXUPgU/wNdkM5aYCgDd2L8MHg8k11BWPlR8VkBBV43qc4euDz+cM0+o95E8wA9Trj93AgkLfbqDdpGvrcW/wxm7SHV+q2IiB36qEfJjTNzPlpCafupfsj9SYV0tQbyz0M6Sha+aKcT6ewhldl3byU2089oT30yF9+IdPCdhk+QeWYzdw677RtwAAAABJRU5ErkJggg==" style="height: 20px; width: 20px;" /></a>&nbsp;<a href="https://www.facebook.com/tdameritrade/" target="_blank"><img alt="TDAmeritrade Facebook Page" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHkAAAB5CAMAAAAqJH57AAAAYFBMVEX///8pU5YmUZUJRY+suNEjT5T5+vwcTJMQR5AAP40YSpI7X5zK0eEAQ4/c4euFmLygrsri5+/U2udNa6K3wdbw8vcyWJhxiLRGZ6Bdd6p5jreWpsUAMYfBytyLncBhe6wkzMNPAAADoklEQVRoge2a2ZqjIBCFBUXc9xg73Wbe/y1HTfKNtlILptuL8Vxr/hQWh6LAcU6dOnXq1KlTb9alzKqqysrLLzLLvrh2rZB6lBRtdy368seplySvhRtoJYV8SEilA1fUefKD0ftVHoeREltSURjnlf8zXK8Lh8E1S+qw897P9guVbke7iDxVxZvZXuSi2IfcyHsjN4mp3IkdJ2/i+nmAj/NizN38LUOe1ZyAn2HX2X5wo3kBP8PWzV7wZwpNJLNk+rkPfEutuKPS2x7wR2ANFiL4OAgsRGSNvu0DDyluOeCf9t/4Jbs0awjgIe/lS9toi8mVgevSJBVoIdq2jSdtPi4121L8GjMQlX402cV3/IdTXgxP1VwjzTHL1HG1eMFAFm7OAyco+PuMMZGFy1u5YmSsVff9DSNZxRywh4S8kThGsnAZpYIfwWARrS3CTBYRPckKNORq9Q5AdgtyyOiE2pgqAFkoatAe5l56w4/91vx8SvzSfofFHN3nwV61GwwCLE91tKCrEAGLYP7h2kgYbfulcJ0XW8o1Rp6nDOo5ozTJyC7b3r8gz75bQ1nEZUzZ7iXoYPPJIqRYaI7ZiA05ogw3ujwuM4xGVjUOLuGfkOmgr1mR432Fk7C6HO8q9GCuyrZPkqSZ5YuflYOysoeHyu1RcgGOnmxN72UKDDrAvfsKzmYzOYETU19RMmydZnIDO8q6lFipBQfNTIa/EvDiS9BiB/7AHbMBzMVK2PvNZDg/hkUFm1ZIgW8mIwYkFVbyV7ZkATvJVgHFI4um7/uFkyTVKGRS7Sc/3XO2YlQP98QKKJxM2Mgt16qMtsnGvzOS22tyRSSjuY3M5zWZGDM+nxEPW5OpMaMehvj2mpzQyATfRrzIlkxYqxDntyUT1me4JrEmE2oSpA6zJRPqMErtySdTak9uvU0jk+pt5h6DRibtMZj7KhKZtq+i7CW5ZNpekrB/ZpOJ+2e8Z8AlU3sGeJ+ES6b2SfDeEHeVJPeG0H4Yc5Wk98PQHiCTzOgBYn1PHpnT98R6vSwyr9eL9JpYZGZ/G+7pc3Kb29OHzzEYMfPPMcCSX9ZFcc8H3YviD7zT55/dwOdVKgiiSQFyKG5zXnXgGZ3j3PiH7UvZnkvuPovddQy8J2p3B/jAM/cD7xkceLfiwPsk4x0a95g7NM5x94ZGHXVXyjnwfphz3J24iX3QPcBJB919fOp131NpPf6DX7rv+U9H3HE9derUqVOn/hP9BUOJOHCGSwiDAAAAAElFTkSuQmCC" style="height: 25px; width: 25px;" /></a>&nbsp;<a href="https://www.tdameritrade.com/security/privacy.page" rel="nofollow">Privacy Policy</a>&nbsp; | &nbsp;<a href="../../terms-use.html" rel="nofollow">Terms of Use</a>&nbsp; | &nbsp;<a ameritrade="" for="" href="mailto:api@tdameritrade.com?subject=TD%20Ameritrade%20for%20developers" rel="nofollow" text="">Contact Us</a></p>
+
+</section> <!-- /.block -->
+<section id="block-block-2" class="block block-block clearfix">
+
+      
+  <script>
+jQuery(document).ready(function() {
+    // Responsive fix to navbar dropdown not showing on mobile
+    window.onresize = function() {
+        jQuery("#navbar").css("width",document.body.clientWidth+"px")
+    }
+    
+    // Fixing the search container
+    jQuery("div.search-container").css("margin-top","10px")
+    jQuery("body").css("padding-top","70px")
+    jQuery(".modal-body").css("max-height","none")
+});
+</script>
+</section> <!-- /.block -->
+<section id="block-block-6" class="block block-block clearfix">
+
+      
+  <script>
+jQuery("a[href$='/user/logout']").on("click", function() {
+sessionStorage.removeItem("apisOAuth2CredentialsDetails");
+})
+</script>
+</section> <!-- /.block -->
+  </div>
+  </footer>
+</div>
+  <div class="region region-page-bottom">
+    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
+  <div class="modal-dialog" style="">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="loginLabel">Log in</h4>
+      </div>
+      <div class="modal-body">
+        <form autocomplete="off" action="https://developer.tdameritrade.com/user/login?destination=taxonomy/term/45" method="post" id="user-login" accept-charset="UTF-8"><div><div class="form-item form-item-name form-type-textfield form-group"> <label class="control-label" for="edit-name">Username or e-mail address <span class="form-required" title="This field is required.">*</span></label>
+<input autocomplete="off" class="form-control form-text required" title="You may login with either your assigned username or your e-mail address." data-toggle="tooltip" type="text" id="edit-name" name="name" value="" size="60" maxlength="60" /></div><div class="form-item form-item-pass form-type-password form-group"> <label class="control-label" for="edit-pass">Password <span class="form-required" title="This field is required.">*</span></label>
+<input autocomplete="off" class="form-control form-text required" title="The password field is case sensitive." data-toggle="tooltip" type="password" id="edit-pass" name="pass" size="60" maxlength="128" /></div><input type="hidden" name="form_build_id" value="form--uXcsVnIIYK6jcak9kdBKvLwZvFYEs0GXDnaJRXZ6e8" />
+<input type="hidden" name="form_id" value="user_login" />
+<div class="form-actions form-wrapper form-group" id="edit-actions"><button type="submit" id="edit-submit" name="op" value="Log in" class="btn btn-primary form-submit icon-before"><span class="icon glyphicon glyphicon-log-in" aria-hidden="true"></span> Log in</button>
+</div><br><br><a href="../../user/password.html">Forgot your password?</a><br><br></div></form>      </div>
+      <div class="modal-footer">
+              </div>
+    </div>
+  </div>
+</div>  </div>
+<script src="https://developer.tdameritrade.com/profiles/apigee/themes/bootstrap/js/bootstrap.js?rjb2e8"></script>
+</body>
+</html>
